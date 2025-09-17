@@ -53,7 +53,7 @@ local theme = lush(function(injected_functions)
 
   return {
     Normal                  { bg = hsl(0, 0, 8) },
-    Comment                 { fg = hsl(0, 0, 25) },    
+    Comment                 { fg = hsl(0, 0, 25) },
     sym"@comment"           { fg = hsl(132, 22, 58)},
     Identifier              { fg = hsl(0, 0, 78) },
     Keyword                 { fg = hsl(205, 32, 55) },
@@ -65,15 +65,22 @@ local theme = lush(function(injected_functions)
                                 fg = hsl(0, 0, 6),
                                 bg = hsl(0, 0, 13)
                             },
-    sym"@tag"               { Type }, 
+    sym"@tag"               { Type },
     sym"@tag.builtin"       { Type },
+    sym"@type"              { Type },
+    sym"@type.builtin"      { Type },
+    sym"@module"            { Identifier },
+    sym"@variable"          { Identifier },
+    sym"@punctuation"       { Identifier },
+    sym"@markup"            { Identifier },
+    sym"@markup.heading"    { Identifier },
     Number                  { Identifier },
     Function                { Identifier },
     Character               { String },
     Boolean                 { Identifier },
     Operator                { Identifier },
     PreProc                 { Function },
-    Special                 { Identifier }, 
+    Special                 { Identifier },
     sym"@constant"          { Function },
     sym"@tag.delimiter"     { Identifier },
     sym"@tag.attribute"     { Identifier },
@@ -205,20 +212,20 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError               { fg = hsl(0, 32, 55) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn                { fg = hsl(33, 32, 55) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo                { fg = hsl(0, 0, 37) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint                { fg = hsl(0, 0, 37) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    --DiagnosticUnderlineError      { fg = hsl(0, 32, 55) } , -- Used to underline "Error" diagnostics.
+    --DiagnosticUnderlineWarn       { fg = hsl(33, 32, 55) } , -- Used to underline "Warn" diagnostics.
+    --DiagnosticUnderlineInfo       { fg = hsl(0, 0, 37) } , -- Used to underline "Info" diagnostics.
+    --DiagnosticUnderlineHint       { fg = hsl(0, 0, 37) } , -- Used to underline "Hint" diagnostics.
+    -- DiagnosticVirtualTextError    { fg = hsl(0, 32, 55) } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
     -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
     -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-    -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
-    -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
-    -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-    -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
     -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
